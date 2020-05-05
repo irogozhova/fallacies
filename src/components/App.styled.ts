@@ -2,9 +2,17 @@ import styled from "styled-components";
 
 export const Root = styled.div`
   position: relative;
+`;
+
+export const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+`;
+
+export const PlaceHolder = styled.div`
+  width: 245px;
+  height: 0;
 `;
 
 export const GenerateBtn = styled.button`

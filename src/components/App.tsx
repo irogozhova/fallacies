@@ -40,15 +40,23 @@ const App = () => {
 
   return (
     <Styled.Root>
-      {cards.map((card: any, i: number) => (
-        <Card
-          key={i}
-          index={i}
-          icon={card.icon}
-          engContent={card.engCard}
-          ruContent={card.ruCard}
-        />
-      ))}
+      <Styled.Cards>
+        {cards.map((card: any, i: number) => (
+          <Card
+            key={i}
+            index={i}
+            icon={card.icon}
+            engContent={card.engCard}
+            ruContent={card.ruCard}
+          />
+        ))}
+        {/* placeholders for last flex row */}
+        <Styled.PlaceHolder />
+        <Styled.PlaceHolder />
+        <Styled.PlaceHolder />
+        <Styled.PlaceHolder />
+        <Styled.PlaceHolder />
+      </Styled.Cards>
       <Styled.GenerateBtn onClick={handleClick}>
         {cardIndexes === null ? (
           <>
