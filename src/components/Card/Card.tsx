@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, memo } from "react";
 import ReactCardFlip from 'react-card-flip';
 
 import CardSide from './CardSide';
@@ -45,4 +45,4 @@ const Card = ({
   );
 }
 
-export default Card;
+export default memo(Card);
