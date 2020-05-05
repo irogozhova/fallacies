@@ -30,7 +30,6 @@ const App = () => {
   },[]);
 
   const handleMouseOver = useCallback((item) => {
-    console.log('item', item);
     setSelectedCardIndex(item);
   },[]);
 
@@ -57,7 +56,10 @@ const App = () => {
         <Styled.PlaceHolder />
         <Styled.PlaceHolder />
       </Styled.Cards>
-      <Styled.GenerateBtn onClick={handleClick}>
+      <Styled.GenerateBtn
+        onClick={handleClick}
+        disabled={cardIndexes !== null}
+      >
         {cardIndexes === null ? (
           <>
             Get 5 random cards

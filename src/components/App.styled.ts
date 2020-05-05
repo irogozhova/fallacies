@@ -16,7 +16,7 @@ export const PlaceHolder = styled.div`
   height: 0;
 `;
 
-export const GenerateBtn = styled.button`
+export const GenerateBtn = styled.button<{disabled: boolean}>`
   position: fixed;
   bottom: 3vh;
   left: 50%;
@@ -31,10 +31,10 @@ export const GenerateBtn = styled.button`
   font-family: 'Noto Sans', sans-serif;
   font-size: 13px;
   color: #fff;
-  cursor: pointer;
   border: none;
   outline: none;
   z-index: 1000;
+  cursor: ${({ disabled }) => !disabled && 'pointer'};
 
   img {
     width: 20px;
@@ -51,6 +51,7 @@ export const Numbers = styled.div`
     display: flex;
     justify-content: center;
     width: 30px;
+    cursor: pointer;
 
     &:first-child {
       margin-left: 10px;
