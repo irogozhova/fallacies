@@ -11,6 +11,8 @@ const App = () => {
       {cards.map((card: any, i: number) => (
         <Card
           key={i}
+          index={i}
+          icon={card.icon}
           engContent={card.engCard}
           ruContent={card.ruCard}
         />

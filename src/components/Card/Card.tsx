@@ -1,14 +1,18 @@
 import React, { useState, useCallback } from "react";
 import ReactCardFlip from 'react-card-flip';
 
+import CardSide from './CardSide';
+
 import * as Styled from "./Card.styled";
 
 type Props = {
+  index: number,
+  icon: string,
   engContent: object;
   ruContent: object,
 };
 
-const Card = (props: Props) => {
+const Card = ({ index, icon, engContent, ruContent }: Props) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleClick = useCallback((e) => {
@@ -17,17 +21,21 @@ const Card = (props: Props) => {
   }, [isFlipped]);
 
   return (
-    <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
-      <Styled.Front>
-        This is the front of the card.
-        <button onClick={handleClick}>Click to flip</button>
-      </Styled.Front>
-
-      <Styled.Back>
-        This is the back of the card.
-        <button onClick={handleClick}>Click to flip</button>
-      </Styled.Back>
-    </ReactCardFlip>
+    <Styled.Root>
+      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+        <CardSide
+          index={index}
+          icon={icon}
+          content={engContent}
+          onFlipBtnClick={handleClick}
+        />
+        <CardSide
+          index={index}
+          content={ruContent}
+          onFlipBtnClick={handleClick}
+        />
+      </ReactCardFlip>
+    </Styled.Root>
   );
 }
 
