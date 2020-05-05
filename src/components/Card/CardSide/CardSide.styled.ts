@@ -22,7 +22,7 @@ export const Root = styled.div<{index: any}>`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 210px;
+  width: 225px;
   height: 335px;
   padding: 10px;
   font-family: 'Noto Sans', sans-serif;

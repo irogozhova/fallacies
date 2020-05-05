@@ -1,11 +1,43 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import Card from './Card';
+import CardSide from './Card/CardSide';
+import Modal from './Modal';
+import dice from './dice.svg';
 
 import * as Styled from "./App.styled";
 
 import cards from './cards.json';
 
+const generateCardNumbers = () => {
+  const arr = [];
+  while(arr.length < 5){
+    let r = Math.floor(Math.random() * 44);
+    if (arr.indexOf(r) === -1) {
+      arr.push(r);
+    }
+  }
+
+  return arr.sort((a, b) => a - b);
+}
+
 const App = () => {
+  const [cardIndexes, setCardIndexes] = useState<number[] | null>(null);
+  const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(null);
+
+  const handleClick = useCallback((e) => {
+    e.preventDefault();
+    setCardIndexes(generateCardNumbers());
+  },[]);
+
+  const handleMouseOver = useCallback((item) => {
+    console.log('item', item);
+    setSelectedCardIndex(item);
+  },[]);
+
+  const handleMouseOut = useCallback(() => {
+    setSelectedCardIndex(null);
+  },[]);
+
   return (
     <Styled.Root>
       {cards.map((card: any, i: number) => (
@@ -17,6 +49,42 @@ const App = () => {
           ruContent={card.ruCard}
         />
       ))}
+      <Styled.GenerateBtn onClick={handleClick}>
+        {cardIndexes === null ? (
+          <>
+            Get 5 random cards
+            <img src={dice} alt="dice" />
+          </>
+          ) : (
+            <Styled.Numbers>
+              Your cards:
+              {cardIndexes.map((item, i) => (
+                <span
+                  key={i}
+                  onMouseOver={() => handleMouseOver(item)}
+                  onMouseOut={handleMouseOut}
+                >
+                  {item}
+                </span>
+              ))}
+            </Styled.Numbers>
+          )
+        }
+      </Styled.GenerateBtn>
+      {selectedCardIndex !== null &&
+        <Modal>
+          <CardSide
+            index={selectedCardIndex}
+            icon={cards[selectedCardIndex].icon}
+            content={cards[selectedCardIndex].engCard}
+          />
+          <CardSide
+            index={selectedCardIndex}
+            icon={cards[selectedCardIndex].icon}
+            content={cards[selectedCardIndex].ruCard}
+          />
+        </Modal>
+      }
     </Styled.Root>
   );
 }

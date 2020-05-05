@@ -12,7 +12,12 @@ type Props = {
   ruContent: object,
 };
 
-const Card = ({ index, icon, engContent, ruContent }: Props) => {
+const Card = ({
+  index,
+  icon,
+  engContent,
+  ruContent,
+}: Props) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleClick = useCallback((e) => {
@@ -31,6 +36,7 @@ const Card = ({ index, icon, engContent, ruContent }: Props) => {
         />
         <CardSide
           index={index}
+          icon={icon}
           content={ruContent}
           onFlipBtnClick={handleClick}
         />

@@ -8,14 +8,14 @@ type Props = {
   index?: number,
   icon?: string,
   content: any,
-  onFlipBtnClick: (ev: React.MouseEvent<HTMLButtonElement>) => void,
+  onFlipBtnClick?: (ev: React.MouseEvent<HTMLButtonElement>) => void,
 };
 
 const CardSide = ({
   index,
   icon,
   content,
-  onFlipBtnClick 
+  onFlipBtnClick,
 }: Props) => {
   return (
     <Styled.Root index={index}>
@@ -25,7 +25,9 @@ const CardSide = ({
       }
       <Styled.Description>{content.description}</Styled.Description>
       <Styled.Example>{content.example}</Styled.Example>
-      <Styled.Button onClick={onFlipBtnClick}>Click to flip</Styled.Button>
+      {onFlipBtnClick &&
+        <Styled.Button onClick={onFlipBtnClick}>Click to flip</Styled.Button>
+      }
       <Styled.Index>{index}</Styled.Index>
     </Styled.Root>
   )
