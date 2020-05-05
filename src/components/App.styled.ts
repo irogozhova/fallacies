@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Root = styled.div`
   position: relative;
+  padding-top: 20px;
 `;
 
 export const Cards = styled.div`
