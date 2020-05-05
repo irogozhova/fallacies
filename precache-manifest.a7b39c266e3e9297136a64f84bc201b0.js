@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dec613acc0d23c55565de135910af978",
+    "revision": "5ab14f1bcdfa14f6ec661b47e599f3f1",
     "url": "/fallacies/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fallacies/static/js/2.bed14eb0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4dbb3ed93607bcfe6674",
-    "url": "/fallacies/static/js/main.2d74862e.chunk.js"
+    "revision": "7205899b4d6c329b2721",
+    "url": "/fallacies/static/js/main.964be5f2.chunk.js"
   },
   {
     "revision": "bb4b7bf119ee9f08f74d",
