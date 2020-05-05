@@ -47,6 +47,16 @@ export const Numbers = styled.div`
   justify-content: center;
   align-items: center;
 
+  & > div {
+    display: flex;
+    justify-content: center;
+    width: 30px;
+
+    &:first-child {
+      margin-left: 10px;
+    }
+  }
+
   span {
     display: flex;
     justify-content: center;
@@ -55,12 +65,6 @@ export const Numbers = styled.div`
     height: 24px;
     border-radius: 50%;
     background-color: white;
-    margin-right: 3px;
-    margin-left: 3px;
     color: #000;
-
-    &:first-child {
-      margin-left: 10px;
-    }
   }
 `;

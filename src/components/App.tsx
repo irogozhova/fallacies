@@ -67,13 +67,13 @@ const App = () => {
             <Styled.Numbers>
               Your cards:
               {cardIndexes.map((item, i) => (
-                <span
+                <div
                   key={i}
                   onMouseOver={() => handleMouseOver(item)}
                   onMouseOut={handleMouseOut}
                 >
-                  {item}
-                </span>
+                  <span>{item}</span>
+                </div>
               ))}
             </Styled.Numbers>
           )
